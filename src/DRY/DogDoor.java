@@ -9,6 +9,15 @@ public class DogDoor {
     public void open(){
         System.out.println("Dog door opens");
         open = true;
+
+        final Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run(){
+            close();
+            timer.cancel();
+            }
+        }, 5000);
+
    } 
 
    public void close(){
